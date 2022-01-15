@@ -31,7 +31,7 @@ class _HomePageState extends State < HomePage > {
       ),
 
       body: Container(
-        padding: EdgeInsets.fromLTRB(20, 40, 20, 40),
+        padding: EdgeInsets.fromLTRB(20, 40, 20, 10),
         child: Column(
           children: [
             Container(
@@ -43,32 +43,30 @@ class _HomePageState extends State < HomePage > {
               ), ),
             ),
 
-            Container(
-              child: Column(
-                children: [
-                  
-                  Card(
-                    elevation: 8,
-                    child: ListTile(
-                      leading: Image(image: NetworkImage('https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dCUyMHNoaXJ0fGVufDB8fDB8fA%3D%3D&w=1000&q=80')),
-                      title: Text('Men T-shirt'),
-                      subtitle: Text('450 Tk'),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(onPressed: () {}, icon: Icon(Icons.remove)),
-                          Text('0', style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 20,
-                          ), ),
-                          IconButton(onPressed: () {}, icon: Icon(Icons.add)),
-                        ],
-                      ),
-
-                    ),
+            Expanded(
+              child: ListView.builder(itemBuilder: (context, index){
+                return Card(
+                elevation: 8,
+                child: ListTile(
+                  leading: Image(image: NetworkImage('https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dCUyMHNoaXJ0fGVufDB8fDB8fA%3D%3D&w=1000&q=80')),
+                  title: Text('Men T-shirt'),
+                  subtitle: Text('450 Tk'),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(onPressed: () {}, icon: Icon(Icons.remove)),
+                      Text('0', style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                      ), ),
+                      IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+                    ],
                   ),
-                  
-                ],
+
+                ),
+              );
+              },
+              itemCount: 2,
               ),
             ),
             SizedBox(height: 15, ),
